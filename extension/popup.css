@@ -1,0 +1,22 @@
+body{
+  font-family:Arial,sans-serif;width:350px;padding:14px;color:#202124
+}
+h2{margin:0 0 7px}
+.muted{font-size:12px;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.status,.action{margin:10px 0;padding:8px;border-radius:6px;background:#f1f3f4}
+.action.active{background:#fce8e6;color:#b3261e;font-weight:700}
+.action.idle{background:#f1f3f4;color:#444}
+button{
+  border:0;border-radius:6px;padding:9px 12px;margin:4px 4px 4px 0;
+  cursor:pointer;background:#1a73e8;color:white;font-weight:600
+}
+button.secondary{background:#5f6368}
+button.danger{background:#b3261e}
+input{
+  width:100%;box-sizing:border-box;padding:8px;border:1px solid #ccc;
+  border-radius:6px;margin:5px 0 6px
+}
+label{font-size:12px;font-weight:700}
+.row{display:flex}
+hr{border:none;border-top:1px solid #ddd;margin:12px 0}
+.hint{font-size:11px;color:#666;line-height:1.35}

@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Web API Hunter V3",
+  "version": "3.0.0",
+  "description": "Observe HTTP APIs and preserve full WebSocket messages in action windows using Chrome DevTools Protocol.",
+  "permissions": [
+    "debugger",
+    "activeTab",
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8765/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Web API Hunter V3"
+  }
+}
