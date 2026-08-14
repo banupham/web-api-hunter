@@ -1,0 +1,30 @@
+name: Extract source archive
+on:
+  push:
+    paths:
+      - 'web_api_hunter_v3.zip'
+      - '.github/workflows/extract-source.yml'
+permissions:
+  contents: write
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract source and remove archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _unpack
+          mkdir _unpack
+          unzip -q web_api_hunter_v3.zip -d _unpack
+          cp -a _unpack/. .
+          rm -rf _unpack web_api_hunter_v3.zip .github .import .importing 2>/dev/null || true
+          find . -type d -name __pycache__ -prune -exec rm -rf {} + || true
+          find . -type f -name '*.pyc' -delete || true
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m 'Extract Web API Hunter v3 source'
+          git push
